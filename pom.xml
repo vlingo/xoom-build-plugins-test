@@ -15,7 +15,7 @@
       <plugin>
         <groupId>io.vlingo</groupId>
         <artifactId>vlingo-maven-plugin</artifactId>
-        <version>0.3.3</version>
+        <version>0.7.8</version>
         <executions>
           <execution>
             <phase>compile</phase>
