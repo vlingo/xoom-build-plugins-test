@@ -15,7 +15,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import io.vlingo.actors.Definition;
 import io.vlingo.actors.testkit.TestActor;
 import io.vlingo.actors.testkit.TestWorld;
 
@@ -24,7 +23,7 @@ public class Test1ProtocolTest {
   
   @Test
   public void testProtocolProxy() {
-    final TestActor<Test1Protocol> test1 = testWorld.actorFor(Definition.has(Test1ProtocolActor.class, Definition.NoParameters), Test1Protocol.class);
+    final TestActor<Test1Protocol> test1 = testWorld.actorFor(Test1Protocol.class, Test1ProtocolActor.class);
     
     test1.actor().doSomethingElseWith(1);
     assertEquals(1, Test1ProtocolActor.doSomethingElseWithValue);
