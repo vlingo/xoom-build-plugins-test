@@ -15,7 +15,7 @@
       <plugin>
         <groupId>io.vlingo</groupId>
         <artifactId>vlingo-build-plugins</artifactId>
-        <version>0.8.4</version>
+        <version>0.8.5</version>
         <executions>
           <execution>
             <phase>compile</phase>
@@ -91,7 +91,13 @@
     <dependency>
       <groupId>io.vlingo</groupId>
       <artifactId>vlingo-build-plugins</artifactId>
-      <version>0.8.4</version>
+      <version>0.8.5</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.0.13</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>
