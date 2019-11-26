@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.vlingo</groupId>
   <artifactId>vlingo-build-plugins-test</artifactId>
-  <version>0.9.1-RC2</version>
+  <version>0.9.2-RC3</version>
   <name>vlingo-build-plugins-test</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -86,12 +86,12 @@
     <dependency>
       <groupId>io.vlingo</groupId>
       <artifactId>vlingo-actors</artifactId>
-      <version>0.9.1-RC2</version>
+      <version>0.9.2-RC3</version>
     </dependency>
     <dependency>
       <groupId>io.vlingo</groupId>
       <artifactId>vlingo-build-plugins</artifactId>
-      <version>0.9.1-RC2</version>
+      <version>0.9.2-RC3</version>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
