@@ -10,12 +10,13 @@ package io.vlingo.maven.actortest;
 import java.util.Arrays;
 
 import io.vlingo.actors.Actor;
+import io.vlingo.actors.ActorInstantiator;
 
 public class Test2ProtocolActor extends Actor implements Test2Protocol {
   public static String doOneThing;
   public static String doAnotherThingUsing;
   public static String somethingRatherWonderful;
-  
+
   @Override
   public void doOneThing() {
     doOneThing = "doOneThing";
@@ -31,5 +32,19 @@ public class Test2ProtocolActor extends Actor implements Test2Protocol {
     test1.doSomethingElseWith(1);
     test1.doSomethingWith("testing", Arrays.asList("one", "two", "three"));
     somethingRatherWonderful = "somethingRatherWonderful: " + Test1ProtocolActor.doSomethingElseWithValue + Test1ProtocolActor.doSomethingWith;
+  }
+
+  public static class Test2ProtocolActorInstantiator implements ActorInstantiator<Test2ProtocolActor> {
+    public static Test2ProtocolActorInstantiator Instantiator = new Test2ProtocolActorInstantiator();
+
+    @Override
+    public Test2ProtocolActor instantiate() {
+      return new Test2ProtocolActor();
+    }
+
+    @Override
+    public Class<Test2ProtocolActor> type() {
+      return Test2ProtocolActor.class;
+    }
   }
 }
