@@ -28,35 +28,6 @@
               <goal>actorProxyGen</goal>
             </goals>
           </execution>
-          <execution>
-            <id>pullSchemata</id>
-            <goals>
-              <goal>pull-schemata</goal>
-            </goals>
-              <configuration>
-                <schemataService>
-                  <url>${vlingo.schemata.serviceUrl}</url>
-                  <clientOrganization>${vlingo.schemata.clientOrganization}</clientOrganization>
-                  <clientUnit>${vlingo.schemata.unit}</clientUnit>
-                </schemataService>
-              </configuration>
-          </execution>
-          <execution>
-            <id>pushSchemata</id>
-            <goals>
-              <goal>push-schemata</goal>
-            </goals>
-            <configuration>
-                <schemataService>
-                  <url>${vlingo.schemata.serviceUrl}</url>
-                  <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
-                  <clientUnit>${vlingo.schemata.unit}</clientUnit>
-                </schemataService>
-                <publications>
-                  <schemataDirectory>${basedir}/src/main/vlingo/schemata</schemataDirectory>
-                </publications>
-            </configuration>
-          </execution>
         </executions>
         <configuration>
           <actorProtocols>
@@ -134,4 +105,59 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <profiles>
+  <profile>
+  <id>schemata</id>
+  <activation>
+    <activeByDefault>false</activeByDefault>
+  </activation>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.vlingo</groupId>
+        <artifactId>vlingo-build-plugins</artifactId>
+        <version>${vlingo.build.plugins.version}</version>
+        <executions>
+          <execution>
+            <id>pullSchemata</id>
+            <goals>
+              <goal>pull-schemata</goal>
+            </goals>
+            <configuration>
+              <schemataService>
+                <url>${vlingo.schemata.serviceUrl}</url>
+                <clientOrganization>${vlingo.schemata.clientOrganization}</clientOrganization>
+                <clientUnit>${vlingo.schemata.unit}</clientUnit>
+              </schemataService>
+            </configuration>
+          </execution>
+          <execution>
+            <id>pushSchemata</id>
+            <goals>
+              <goal>push-schemata</goal>
+            </goals>
+            <configuration>
+              <schemataService>
+                <url>${vlingo.schemata.serviceUrl}</url>
+                <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
+                <clientUnit>${vlingo.schemata.unit}</clientUnit>
+              </schemataService>
+              <publications>
+                <schemataDirectory>${basedir}/src/main/vlingo/schemata</schemataDirectory>
+              </publications>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <actorProtocols>
+            <param>io.vlingo.maven.actortest.Test1Protocol</param>
+            <param>io.vlingo.maven.actortest.Test2Protocol</param>
+          </actorProtocols>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  </profile>
+  </profiles>
 </project>

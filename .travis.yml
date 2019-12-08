@@ -12,7 +12,7 @@ before_install:
 - cd vlingo-build-plugins && mvn install -DskipTests=true
 - cd ${TRAVIS_BUILD_DIR}
 script:
-- mvn install
+- mvn install -Pschemata
 notifications:
   slack:
     secure: LXkOFflObBDuBCJlQuWDTkw/Y5XiXLpx0pzpzgp0PdEC92ihDlROuv2r+PHDjbGSVrOtjlRxT0hPiucD11Lb9QuU6YyznLCcLv+ZI4y6bIlrVY5Bo7lbh4ArOJliCd8s+6mthnmsWkqladdj2x+ApmUc6LjdX8Q2xYXzrUzgPQ6o24OrYBbTW4uRJr9vALZRffIh3s3o2wF0eEewq2Z0Gp1caCaCO0QlDrunhcP0o2vtgKG1YpCU8eScrg/FoEKCltc9PCNvNSVW7SzIwO0TjPg/F/ae1SJlbKGBDglJT21u1pE+A+Qb6J7maMNEcvdAGM34+rm1+ADy+UuGD0N+kAP76T+bxFIOecA71Q24PaAWEXxeJeDnZpNxT367vguKCqeFe13kEs7MCUPmWTQ5oP+dpgIQXk/o3cM3p2yOXGIuONrc/sQM0NmUr1j7geUU5hgJGlYDOLS1TrM0JkHUsbGzmzN555OV9wmOvvCwU269gLsdkBoolg/6Iq9udkqDunow9SgnxNXlAhZ4l5areWbluIPdqBm8dkWDdCmB6I3/JjwgOUNWuWPhVdajlPgdr6pNtVPusObV6QD78M7Se7PW/caonEKoEQxS7pHUItiG7YATaURPpQDj2WRUeJqkwN1VMF/M9A2VcZ62NIcZoEAcwAkTsNTNkWIdr07kPJ4=
