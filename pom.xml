@@ -10,6 +10,9 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <vlingo.build.plugins.version>${project.version}</vlingo.build.plugins.version>
+    <vlingo.schemata.serviceUrl>https://localhost:9019</vlingo.schemata.serviceUrl>
+    <vlingo.schemata.organization>Vlingo</vlingo.schemata.organization>
+    <vlingo.schemata.unit>example</vlingo.schemata.unit>
   </properties>
   <build>
     <plugins>
@@ -28,11 +31,31 @@
           <execution>
             <id>pullSchemata</id>
             <goals>
-              <goal>schemata</goal>
+              <goal>pull-schemata</goal>
             </goals>
               <configuration>
-                <message>flargs</message>
+                <schemataService>
+                  <url>${vlingo.schemata.serviceUrl}</url>
+                  <clientOrganization>${vlingo.schemata.clientOrganization}</clientOrganization>
+                  <clientUnit>${vlingo.schemata.unit}</clientUnit>
+                </schemataService>
               </configuration>
+          </execution>
+          <execution>
+            <id>pushSchemata</id>
+            <goals>
+              <goal>push-schemata</goal>
+            </goals>
+            <configuration>
+                <schemataService>
+                  <url>${vlingo.schemata.serviceUrl}</url>
+                  <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
+                  <clientUnit>${vlingo.schemata.unit}</clientUnit>
+                </schemataService>
+                <publications>
+                  <schemataDirectory>${basedir}/src/main/vlingo/schemata</schemataDirectory>
+                </publications>
+            </configuration>
           </execution>
         </executions>
         <configuration>

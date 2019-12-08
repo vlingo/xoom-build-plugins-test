@@ -1,0 +1,5 @@
+event TestEvent {
+    type eventType
+    timestamp occurredOn
+    version eventVersion
+}
