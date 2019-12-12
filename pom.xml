@@ -10,7 +10,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <vlingo.build.plugins.version>${project.version}</vlingo.build.plugins.version>
-    <vlingo.schemata.serviceUrl>https://localhost:9019</vlingo.schemata.serviceUrl>
+    <vlingo.schemata.serviceUrl>http://localhost:9019</vlingo.schemata.serviceUrl>
     <vlingo.schemata.organization>Vlingo</vlingo.schemata.organization>
     <vlingo.schemata.unit>examples</vlingo.schemata.unit>
     <vlingo.schemata.srcDir>${basedir}/src/main/vlingo/schemata</vlingo.schemata.srcDir>
@@ -133,10 +133,10 @@
               </schemataService>
               <schemata>
                 <schema>
-                  <ref>Vlingo:examples.schemata:SchemaDefined:0.0.1</ref>
+                  <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
                 </schema>
                 <schema>
-                  <ref>Vlingo:examples.schemata:SchemaPublished:0.0.1</ref>
+                  <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
                 </schema>
               </schemata>
             </configuration>
@@ -153,16 +153,14 @@
                 <clientUnit>${vlingo.schemata.unit}</clientUnit>
               </schemataService>
               <schemata>
-                <schemata>
                   <schema>
-                    <ref>Vlingo:examples.schemata:SchemaDefined:0.0.1</ref>
+                    <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
                     <src>${vlingo.schemata.srcDir}/SchemaDefined.vss</src>
                   </schema>
                   <schema>
-                    <ref>Vlingo:examples.schemata:SchemaPublished:0.0.1</ref>
+                    <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
                     <src>${vlingo.schemata.srcDir}/SchemaPublished.vss</src>
                   </schema>
-                </schemata>
               </schemata>
             </configuration>
           </execution>
