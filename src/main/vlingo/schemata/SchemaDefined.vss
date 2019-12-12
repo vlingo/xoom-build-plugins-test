@@ -1,4 +1,4 @@
-event TestEvent {
+event SchemaDefined {
     type eventType
     timestamp occurredOn
     version eventVersion

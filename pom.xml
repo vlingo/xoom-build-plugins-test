@@ -12,7 +12,8 @@
     <vlingo.build.plugins.version>${project.version}</vlingo.build.plugins.version>
     <vlingo.schemata.serviceUrl>https://localhost:9019</vlingo.schemata.serviceUrl>
     <vlingo.schemata.organization>Vlingo</vlingo.schemata.organization>
-    <vlingo.schemata.unit>example</vlingo.schemata.unit>
+    <vlingo.schemata.unit>examples</vlingo.schemata.unit>
+    <vlingo.schemata.srcDir>${basedir}/src/main/vlingo/schemata</vlingo.schemata.srcDir>
   </properties>
   <build>
     <plugins>
@@ -127,9 +128,17 @@
             <configuration>
               <schemataService>
                 <url>${vlingo.schemata.serviceUrl}</url>
-                <clientOrganization>${vlingo.schemata.clientOrganization}</clientOrganization>
+                <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
                 <clientUnit>${vlingo.schemata.unit}</clientUnit>
               </schemataService>
+              <schemata>
+                <schema>
+                  <ref>Vlingo:examples.schemata:SchemaDefined:0.0.1</ref>
+                </schema>
+                <schema>
+                  <ref>Vlingo:examples.schemata:SchemaPublished:0.0.1</ref>
+                </schema>
+              </schemata>
             </configuration>
           </execution>
           <execution>
@@ -143,9 +152,18 @@
                 <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
                 <clientUnit>${vlingo.schemata.unit}</clientUnit>
               </schemataService>
-              <publications>
-                <schemataDirectory>${basedir}/src/main/vlingo/schemata</schemataDirectory>
-              </publications>
+              <schemata>
+                <schemata>
+                  <schema>
+                    <ref>Vlingo:examples.schemata:SchemaDefined:0.0.1</ref>
+                    <src>${vlingo.schemata.srcDir}/SchemaDefined.vss</src>
+                  </schema>
+                  <schema>
+                    <ref>Vlingo:examples.schemata:SchemaPublished:0.0.1</ref>
+                    <src>${vlingo.schemata.srcDir}/SchemaPublished.vss</src>
+                  </schema>
+                </schemata>
+              </schemata>
             </configuration>
           </execution>
         </executions>
