@@ -96,6 +96,15 @@
     </dependency>
     <dependency>
       <groupId>io.vlingo</groupId>
+      <artifactId>vlingo-lattice</artifactId>
+      <version>0.9.3-RC4</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vlingo</groupId>
+      <artifactId>vlingo-schemata</artifactId>
+      <version>0.9.3-RC4</version>
+    </dependency><dependency>
+      <groupId>io.vlingo</groupId>
       <artifactId>vlingo-build-plugins</artifactId>
       <version>0.9.3-RC4</version>
     </dependency>
@@ -135,9 +144,11 @@
                 <schema>
                   <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
                 </schema>
+                <!--
                 <schema>
                   <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
                 </schema>
+                -->
               </schemata>
             </configuration>
           </execution>
@@ -152,15 +163,18 @@
                 <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
                 <clientUnit>${vlingo.schemata.unit}</clientUnit>
               </schemataService>
+              <outputDirectory>${project.build.outputDirectory}/generated-sources/vlingo</outputDirectory>
               <schemata>
                   <schema>
                     <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
                     <src>${vlingo.schemata.srcDir}/SchemaDefined.vss</src>
                   </schema>
+                <!--
                   <schema>
                     <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
                     <src>${vlingo.schemata.srcDir}/SchemaPublished.vss</src>
                   </schema>
+                  -->
               </schemata>
             </configuration>
           </execution>
