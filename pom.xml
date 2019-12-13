@@ -143,15 +143,14 @@
                 <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
                 <clientUnit>${vlingo.schemata.unit}</clientUnit>
               </schemataService>
+              <outputDirectory>${project.build.outputDirectory}/generated-sources/vlingo</outputDirectory>
               <schemata>
                 <schema>
                   <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
                 </schema>
-                <!--
                 <schema>
-                  <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
+                  <ref>Vlingo:examples:schemata:SchemaPublished:0.0.2</ref>
                 </schema>
-                -->
               </schemata>
             </configuration>
           </execution>
@@ -166,18 +165,16 @@
                 <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
                 <clientUnit>${vlingo.schemata.unit}</clientUnit>
               </schemataService>
-              <outputDirectory>${project.build.outputDirectory}/generated-sources/vlingo</outputDirectory>
               <schemata>
                   <schema>
                     <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
                     <src>${vlingo.schemata.srcDir}/SchemaDefined.vss</src>
+                    <previousVersion>0.0.0</previousVersion>
                   </schema>
-                <!--
                   <schema>
                     <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
                     <src>${vlingo.schemata.srcDir}/SchemaPublished.vss</src>
                   </schema>
-                  -->
               </schemata>
             </configuration>
           </execution>
