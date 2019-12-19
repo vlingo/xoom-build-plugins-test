@@ -12,7 +12,7 @@
     <vlingo.build.plugins.version>${project.version}</vlingo.build.plugins.version>
     <vlingo.schemata.serviceUrl>http://localhost:9019</vlingo.schemata.serviceUrl>
     <vlingo.schemata.organization>Vlingo</vlingo.schemata.organization>
-    <vlingo.schemata.unit>examples</vlingo.schemata.unit>
+    <vlingo.schemata.unit>schemata</vlingo.schemata.unit>
     <vlingo.schemata.srcDir>${basedir}/src/main/vlingo/schemata</vlingo.schemata.srcDir>
   </properties>
   <build>
@@ -132,34 +132,14 @@
         <artifactId>vlingo-build-plugins</artifactId>
         <version>${vlingo.build.plugins.version}</version>
         <executions>
-          <execution>
-            <id>pullSchemata</id>
-            <goals>
-              <goal>pull-schemata</goal>
-            </goals>
-            <configuration>
-              <schemataService>
-                <url>${vlingo.schemata.serviceUrl}</url>
-                <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
-                <clientUnit>${vlingo.schemata.unit}</clientUnit>
-              </schemataService>
-              <outputDirectory>${project.build.outputDirectory}/generated-sources/vlingo</outputDirectory>
-              <schemata>
-                <schema>
-                  <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
-                </schema>
-                <schema>
-                  <ref>Vlingo:examples:schemata:SchemaPublished:0.0.2</ref>
-                </schema>
-              </schemata>
-            </configuration>
-          </execution>
+
           <execution>
             <id>pushSchemata</id>
             <goals>
               <goal>push-schemata</goal>
             </goals>
             <configuration>
+              <srcDirectory>${vlingo.schemata.srcDir}</srcDirectory>
               <schemataService>
                 <url>${vlingo.schemata.serviceUrl}</url>
                 <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
@@ -167,13 +147,12 @@
               </schemataService>
               <schemata>
                   <schema>
-                    <ref>Vlingo:examples:schemata:SchemaDefined:0.0.1</ref>
-                    <src>${vlingo.schemata.srcDir}/SchemaDefined.vss</src>
+                    <ref>Vlingo:schemata:io.vlingo.schemata:SchemaDefined:0.0.1</ref>
+                    <src>SchemaDefined.vss</src>
                     <previousVersion>0.0.0</previousVersion>
                   </schema>
                   <schema>
-                    <ref>Vlingo:examples:schemata:SchemaPublished:0.0.1</ref>
-                    <src>${vlingo.schemata.srcDir}/SchemaPublished.vss</src>
+                    <ref>Vlingo:schemata:io.vlingo.schemata:SchemaPublished:0.0.1</ref>
                   </schema>
               </schemata>
             </configuration>
