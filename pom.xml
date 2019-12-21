@@ -9,15 +9,21 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <vlingo.build.plugins.version>${project.version}</vlingo.build.plugins.version>
+    <vlingo.schemata.serviceUrl>http://localhost:9019</vlingo.schemata.serviceUrl>
+    <vlingo.schemata.organization>Vlingo</vlingo.schemata.organization>
+    <vlingo.schemata.unit>schemata</vlingo.schemata.unit>
+    <vlingo.schemata.srcDir>${basedir}/src/main/vlingo/schemata</vlingo.schemata.srcDir>
   </properties>
   <build>
     <plugins>
       <plugin>
         <groupId>io.vlingo</groupId>
         <artifactId>vlingo-build-plugins</artifactId>
-        <version>0.8.7</version>
+        <version>${vlingo.build.plugins.version}</version>
         <executions>
           <execution>
+            <id>generateProxies</id>
             <phase>compile</phase>
             <goals>
               <goal>actorProxyGen</goal>
@@ -78,20 +84,32 @@
       <version>3.0.0</version>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>io.vlingo</groupId>
       <artifactId>vlingo-actors</artifactId>
       <version>0.9.3-RC4</version>
     </dependency>
     <dependency>
       <groupId>io.vlingo</groupId>
+      <artifactId>vlingo-lattice</artifactId>
+      <version>0.9.3-RC4</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vlingo</groupId>
       <artifactId>vlingo-build-plugins</artifactId>
       <version>0.9.3-RC4</version>
+    </dependency>
+    <dependency> <!-- required to have access to schemata base classes -->
+      <groupId>io.vlingo</groupId>
+      <artifactId>vlingo-schemata</artifactId>
+      <version>0.9.3-RC4</version>
+    </dependency>
+
+    <!-- test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -100,4 +118,55 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <profiles>
+  <profile>
+  <id>schemata</id>
+  <activation>
+    <activeByDefault>false</activeByDefault>
+  </activation>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.vlingo</groupId>
+        <artifactId>vlingo-build-plugins</artifactId>
+        <version>${vlingo.build.plugins.version}</version>
+        <executions>
+
+          <execution>
+            <id>pushSchemata</id>
+            <goals>
+              <goal>push-schemata</goal>
+            </goals>
+            <configuration>
+              <srcDirectory>${vlingo.schemata.srcDir}</srcDirectory>
+              <schemataService>
+                <url>${vlingo.schemata.serviceUrl}</url>
+                <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
+                <clientUnit>${vlingo.schemata.unit}</clientUnit>
+              </schemataService>
+              <schemata>
+                  <schema>
+                    <ref>Vlingo:schemata:io.vlingo.schemata:SchemaDefined:0.0.1</ref>
+                    <src>SchemaDefined.vss</src>
+                    <previousVersion>0.0.0</previousVersion>
+                  </schema>
+                  <schema>
+                    <ref>Vlingo:schemata:io.vlingo.schemata:SchemaPublished:0.0.1</ref>
+                  </schema>
+              </schemata>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <actorProtocols>
+            <param>io.vlingo.maven.actortest.Test1Protocol</param>
+            <param>io.vlingo.maven.actortest.Test2Protocol</param>
+          </actorProtocols>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  </profile>
+  </profiles>
 </project>
