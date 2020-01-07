@@ -98,13 +98,11 @@
       <artifactId>vlingo-build-plugins</artifactId>
       <version>0.9.3-RC4</version>
     </dependency>
-    <dependency> <!-- required to have access to schemata base classes -->
+    <dependency>
       <groupId>io.vlingo</groupId>
       <artifactId>vlingo-schemata</artifactId>
       <version>0.9.3-RC4</version>
     </dependency>
-
-    <!-- test dependencies -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -118,55 +116,53 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <profiles>
-  <profile>
-  <id>schemata</id>
-  <activation>
-    <activeByDefault>false</activeByDefault>
-  </activation>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>io.vlingo</groupId>
-        <artifactId>vlingo-build-plugins</artifactId>
-        <version>${vlingo.build.plugins.version}</version>
-        <executions>
-
-          <execution>
-            <id>pushSchemata</id>
-            <goals>
-              <goal>push-schemata</goal>
-            </goals>
+    <profile>
+      <id>schemata</id>
+      <activation>
+        <activeByDefault>false</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.vlingo</groupId>
+            <artifactId>vlingo-build-plugins</artifactId>
+            <version>${vlingo.build.plugins.version}</version>
+            <executions>
+              <execution>
+                <id>pushSchemata</id>
+                <goals>
+                  <goal>push-schemata</goal>
+                </goals>
+                <configuration>
+                  <srcDirectory>${vlingo.schemata.srcDir}</srcDirectory>
+                  <schemataService>
+                    <url>${vlingo.schemata.serviceUrl}</url>
+                    <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
+                    <clientUnit>${vlingo.schemata.unit}</clientUnit>
+                  </schemataService>
+                  <schemata>
+                    <schema>
+                      <ref>Vlingo:schemata:io.vlingo.schemata:SchemaDefined:0.0.1</ref>
+                      <src>SchemaDefined.vss</src>
+                      <previousVersion>0.0.0</previousVersion>
+                    </schema>
+                    <schema>
+                      <ref>Vlingo:schemata:io.vlingo.schemata:SchemaPublished:0.0.1</ref>
+                    </schema>
+                  </schemata>
+                </configuration>
+              </execution>
+            </executions>
             <configuration>
-              <srcDirectory>${vlingo.schemata.srcDir}</srcDirectory>
-              <schemataService>
-                <url>${vlingo.schemata.serviceUrl}</url>
-                <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
-                <clientUnit>${vlingo.schemata.unit}</clientUnit>
-              </schemataService>
-              <schemata>
-                  <schema>
-                    <ref>Vlingo:schemata:io.vlingo.schemata:SchemaDefined:0.0.1</ref>
-                    <src>SchemaDefined.vss</src>
-                    <previousVersion>0.0.0</previousVersion>
-                  </schema>
-                  <schema>
-                    <ref>Vlingo:schemata:io.vlingo.schemata:SchemaPublished:0.0.1</ref>
-                  </schema>
-              </schemata>
+              <actorProtocols>
+                <param>io.vlingo.maven.actortest.Test1Protocol</param>
+                <param>io.vlingo.maven.actortest.Test2Protocol</param>
+              </actorProtocols>
             </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <actorProtocols>
-            <param>io.vlingo.maven.actortest.Test1Protocol</param>
-            <param>io.vlingo.maven.actortest.Test2Protocol</param>
-          </actorProtocols>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  </profile>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>
