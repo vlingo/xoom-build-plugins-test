@@ -4,4 +4,4 @@
 
 Test project for `vlingo-build-plugins` and includes examples for that plugin.
 
-Docs: https://docs.vlingo.io/vlingo-maven-plugin
+Docs: https://docs.vlingo.io/vlingo-build-plugins
