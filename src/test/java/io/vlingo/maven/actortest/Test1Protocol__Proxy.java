@@ -11,6 +11,7 @@ import io.vlingo.actors.Actor;
 import io.vlingo.actors.DeadLetter;
 import io.vlingo.actors.LocalMessage;
 import io.vlingo.actors.Mailbox;
+import io.vlingo.common.SerializableConsumer;
 
 public class Test1Protocol__Proxy implements io.vlingo.maven.actortest.Test1Protocol {
 
@@ -28,9 +29,9 @@ public class Test1Protocol__Proxy implements io.vlingo.maven.actortest.Test1Prot
   @Override
   public void doSomethingWith(java.lang.String arg0, java.util.List<java.lang.String> arg1) {
     if (!actor.isStopped()) {
-      final java.util.function.Consumer<Test1Protocol> consumer = (actor) -> actor.doSomethingWith(arg0, arg1);
+      final SerializableConsumer<Test1Protocol> consumer = (actor) -> actor.doSomethingWith(arg0, arg1);
       if (mailbox.isPreallocated()) { mailbox.send(actor, Test1Protocol.class, consumer, null, doSomethingWithRepresentation1); }
-      else { mailbox.send(new LocalMessage<Test1Protocol>(actor, Test1Protocol.class, consumer, doSomethingWithRepresentation1)); }
+      else { mailbox.send(new LocalMessage<>(actor, Test1Protocol.class, consumer, doSomethingWithRepresentation1)); }
     } else {
       actor.deadLetters().failedDelivery(new DeadLetter(actor, doSomethingWithRepresentation1));
     }
@@ -38,9 +39,9 @@ public class Test1Protocol__Proxy implements io.vlingo.maven.actortest.Test1Prot
   @Override
   public void doSomethingElseWith(int arg0) {
     if (!actor.isStopped()) {
-      final java.util.function.Consumer<Test1Protocol> consumer = (actor) -> actor.doSomethingElseWith(arg0);
+      final SerializableConsumer<Test1Protocol> consumer = (actor) -> actor.doSomethingElseWith(arg0);
       if (mailbox.isPreallocated()) { mailbox.send(actor, Test1Protocol.class, consumer, null, doSomethingElseWithRepresentation2); }
-      else { mailbox.send(new LocalMessage<Test1Protocol>(actor, Test1Protocol.class, consumer, doSomethingElseWithRepresentation2)); }
+      else { mailbox.send(new LocalMessage<>(actor, Test1Protocol.class, consumer, doSomethingElseWithRepresentation2)); }
     } else {
       actor.deadLetters().failedDelivery(new DeadLetter(actor, doSomethingElseWithRepresentation2));
     }
