@@ -5,7 +5,7 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-package io.vlingo.maven.actortest;
+package io.vlingo.xoom.maven.actortest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,10 +15,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import io.vlingo.actors.Definition;
-import io.vlingo.actors.testkit.TestActor;
-import io.vlingo.actors.testkit.TestWorld;
-import io.vlingo.maven.actortest.Test1ProtocolActor.Test1ProtocolActorInstantiator;
+import io.vlingo.xoom.actors.Definition;
+import io.vlingo.xoom.actors.testkit.TestActor;
+import io.vlingo.xoom.actors.testkit.TestWorld;
+import io.vlingo.xoom.maven.actortest.Test1ProtocolActor.Test1ProtocolActorInstantiator;
 
 public class Test1ProtocolTest {
   private TestWorld testWorld;

@@ -5,11 +5,10 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-package io.vlingo.maven.actortest;
+package io.vlingo.xoom.maven.actortest;
 
-import java.util.List;
-
-public interface Test1Protocol {
-  void doSomethingWith(final String name, final List<String> texts);
-  void doSomethingElseWith(final int value);
+public interface Test2Protocol {
+  void doOneThing();
+  void doAnotherThingUsing(final String text, final int value);
+  void somethingRatherWonderful(final Test1Protocol test1);
 }

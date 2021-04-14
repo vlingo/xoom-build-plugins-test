@@ -1,8 +1,8 @@
-# vlingo-build-plugins-test
+# xoom-build-plugins-test
 
 [![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/vlingo-platform-java/community)
-[![Build](https://github.com/vlingo/vlingo-build-plugins-test/workflows/Build/badge.svg)](https://github.com/vlingo/vlingo-build-plugins-test/actions?query=workflow%3ABuild)
+[![Build](https://github.com/vlingo/xoom-build-plugins-test/workflows/Build/badge.svg)](https://github.com/vlingo/xoom-build-plugins-test/actions?query=workflow%3ABuild)
 
-Test project for `vlingo-build-plugins` and includes examples for that plugin.
+Test project for `xoom-build-plugins` and includes examples for that plugin.
 
-Docs: https://docs.vlingo.io/vlingo-build-plugins
+Docs: https://docs.vlingo.io/xoom-build-plugins

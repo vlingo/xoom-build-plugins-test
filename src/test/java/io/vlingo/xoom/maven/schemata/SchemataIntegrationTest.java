@@ -5,7 +5,7 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-package io.vlingo.schemata;
+package io.vlingo.xoom.maven.schemata;
 
 import org.junit.Ignore;
 import org.junit.Test;

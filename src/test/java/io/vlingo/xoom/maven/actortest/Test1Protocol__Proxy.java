@@ -5,15 +5,15 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-package io.vlingo.maven.actortest;
+package io.vlingo.xoom.maven.actortest;
 
-import io.vlingo.actors.Actor;
-import io.vlingo.actors.DeadLetter;
-import io.vlingo.actors.LocalMessage;
-import io.vlingo.actors.Mailbox;
-import io.vlingo.common.SerializableConsumer;
+import io.vlingo.xoom.actors.Actor;
+import io.vlingo.xoom.actors.DeadLetter;
+import io.vlingo.xoom.actors.LocalMessage;
+import io.vlingo.xoom.actors.Mailbox;
+import io.vlingo.xoom.common.SerializableConsumer;
 
-public class Test1Protocol__Proxy implements io.vlingo.maven.actortest.Test1Protocol {
+public class Test1Protocol__Proxy implements Test1Protocol {
 
   private static final String doSomethingWithRepresentation1 = "doSomethingWith(java.lang.String, java.util.List<java.lang.String>)";
   private static final String doSomethingElseWithRepresentation2 = "doSomethingElseWith(int)";

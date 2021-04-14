@@ -5,15 +5,15 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-package io.vlingo.maven.actortest;
+package io.vlingo.xoom.maven.actortest;
 
-import io.vlingo.actors.Actor;
-import io.vlingo.actors.DeadLetter;
-import io.vlingo.actors.LocalMessage;
-import io.vlingo.actors.Mailbox;
-import io.vlingo.common.SerializableConsumer;
+import io.vlingo.xoom.actors.Actor;
+import io.vlingo.xoom.actors.DeadLetter;
+import io.vlingo.xoom.actors.LocalMessage;
+import io.vlingo.xoom.actors.Mailbox;
+import io.vlingo.xoom.common.SerializableConsumer;
 
-public class Test2Protocol__Proxy implements io.vlingo.maven.actortest.Test2Protocol {
+public class Test2Protocol__Proxy implements Test2Protocol {
 
   private static final String doOneThingRepresentation1 = "doOneThing()";
   private static final String doAnotherThingUsingRepresentation2 = "doAnotherThingUsing(java.lang.String, int)";
@@ -48,7 +48,7 @@ public class Test2Protocol__Proxy implements io.vlingo.maven.actortest.Test2Prot
     }
   }
   @Override
-  public void somethingRatherWonderful(io.vlingo.maven.actortest.Test1Protocol arg0) {
+  public void somethingRatherWonderful(Test1Protocol arg0) {
     if (!actor.isStopped()) {
       final SerializableConsumer<Test2Protocol> consumer = (actor) -> actor.somethingRatherWonderful(arg0);
       if (mailbox.isPreallocated()) { mailbox.send(actor, Test2Protocol.class, consumer, null, somethingRatherWonderfulRepresentation3); }

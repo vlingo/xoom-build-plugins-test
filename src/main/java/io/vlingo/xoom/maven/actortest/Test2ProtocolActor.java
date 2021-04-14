@@ -5,12 +5,12 @@
 // was not distributed with this file, You can obtain
 // one at https://mozilla.org/MPL/2.0/.
 
-package io.vlingo.maven.actortest;
+package io.vlingo.xoom.maven.actortest;
 
 import java.util.Arrays;
 
-import io.vlingo.actors.Actor;
-import io.vlingo.actors.ActorInstantiator;
+import io.vlingo.xoom.actors.Actor;
+import io.vlingo.xoom.actors.ActorInstantiator;
 
 public class Test2ProtocolActor extends Actor implements Test2Protocol {
   public static String doOneThing;
