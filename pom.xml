@@ -136,9 +136,10 @@
             <version>${vlingo.build.plugins.version}</version>
             <executions>
               <execution>
-                <id>pushSchemata</id>
+                <id>push</id>
+                <phase>install</phase>
                 <goals>
-                  <goal>push-schemata</goal>
+                  <goal>push-schema</goal>
                 </goals>
                 <configuration>
                   <srcDirectory>${vlingo.schemata.srcDir}</srcDirectory>
@@ -146,6 +147,7 @@
                     <url>${vlingo.schemata.serviceUrl}</url>
                     <clientOrganization>${vlingo.schemata.organization}</clientOrganization>
                     <clientUnit>${vlingo.schemata.unit}</clientUnit>
+                    <hierarchicalCascade>true</hierarchicalCascade>
                   </schemataService>
                   <schemata>
                     <schema>
