@@ -9,7 +9,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <vlingo.build.plugins.version>${project.version}</vlingo.build.plugins.version>
+    <xoom.version>${project.version}</xoom.version>
     <vlingo.schemata.serviceUrl>http://localhost:9019</vlingo.schemata.serviceUrl>
     <vlingo.schemata.organization>Vlingo</vlingo.schemata.organization>
     <vlingo.schemata.unit>schemata</vlingo.schemata.unit>
@@ -20,7 +20,7 @@
       <plugin>
         <groupId>io.vlingo.xoom</groupId>
         <artifactId>xoom-build-plugins</artifactId>
-        <version>${vlingo.build.plugins.version}</version>
+        <version>${xoom.version}</version>
         <executions>
           <execution>
             <id>generateProxies</id>
@@ -86,12 +86,12 @@
     <dependency>
       <groupId>io.vlingo.xoom</groupId>
       <artifactId>xoom-actors</artifactId>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>${xoom.version}</version>
     </dependency>
     <dependency>
       <groupId>io.vlingo.xoom</groupId>
       <artifactId>xoom-lattice</artifactId>
-      <version>1.6.1-SNAPSHOT</version>
+      <version>${xoom.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -133,7 +133,7 @@
           <plugin>
             <groupId>io.vlingo.xoom</groupId>
             <artifactId>xoom-build-plugins</artifactId>
-            <version>${vlingo.build.plugins.version}</version>
+            <version>${xoom.version}</version>
             <executions>
               <execution>
                 <id>push</id>
