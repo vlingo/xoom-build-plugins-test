@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.vlingo</groupId>
   <artifactId>xoom-build-plugins-test</artifactId>
-  <version>1.7.8-SNAPSHOT</version>
+  <version>1.8.1-SNAPSHOT</version>
   <name>xoom-build-plugins-test</name>
   <url>http://maven.apache.org</url>
   <properties>
